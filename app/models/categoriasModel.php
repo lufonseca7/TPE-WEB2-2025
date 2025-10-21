@@ -6,9 +6,8 @@ class categoriasModel{
     function __construct(){
         //PUERTO DE MYSQL MODIFICADO POR ERROR EN XAMMP: nuevo puerto 3307 y puerto original: 3306
         $this->db = new PDO('mysql:host='.MYSQL_HOST.';port=3307;dbname='.MYSQL_DB.';charset=utf8', MYSQL_USER, MYSQL_PASS);
-
+       
     }
-
 
     function getCategorias(){
         $query = $this->db->prepare('SELECT * FROM categorias');

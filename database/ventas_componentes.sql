@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3307
--- Tiempo de generación: 21-10-2025 a las 03:44:47
+-- Tiempo de generación: 21-10-2025 a las 03:59:23
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -64,6 +64,25 @@ INSERT INTO `productos` (`id`, `nombre_producto`, `categoria`, `precio`) VALUES
 (3, 'INTEL i5 12400f', 2, 500000),
 (4, 'Teclado Mecanico 60%', 1, 430000);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id` int(11) NOT NULL,
+  `user` varchar(50) NOT NULL,
+  `password` char(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `user`, `password`) VALUES
+(1, 'webadmin', '$2y$10$V3exkS5LUNBC03HgqihXse.yeBXzoMZKCTMBefqQTYvCOGHaPZbA6');
+
 --
 -- Índices para tablas volcadas
 --
@@ -82,6 +101,12 @@ ALTER TABLE `productos`
   ADD KEY `fk_productos_categorias` (`categoria`);
 
 --
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -96,6 +121,12 @@ ALTER TABLE `categorias`
 --
 ALTER TABLE `productos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
