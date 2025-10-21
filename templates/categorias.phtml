@@ -1,0 +1,31 @@
+<?php require_once './templates/header.phtml'?>
+
+<h1  class="text-center text-violet">Nuestras Categorias son:</h1>
+
+
+<table class="table table-striped table-hover" style="background-color: #D09EE7;">
+    <thead>
+        <tr>
+            <th>Nombre Categoria</th>
+            <th>Descripcion</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($list as $item):?>
+            <?php if ($item->categoria_destacada == 1){ ?>
+                <tr style="background-color: #26db72ff;">
+                    <td><?= $item->nombre_categoria ?></td>
+                    <td><?= $item->descripcion ?></td>    
+                </tr>
+                <?php }else{ ?>
+                <tr>
+                    <td><?= $item->nombre_categoria ?></td>
+                    <td><?= $item->descripcion ?></td>
+                </tr>
+                <?php }?>   
+
+        <?php endforeach?> 
+    </tbody>
+</table>
+
+<?php require_once './templates/footer.phtml'?>

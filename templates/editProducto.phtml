@@ -1,0 +1,29 @@
+<?php require_once './templates/header.phtml'; ?>
+<h1>Edite el producto:</h1>
+
+<form method="post" action="actualizarProducto/<?=$id?>" class="form-control form-control-sm">
+    <label class="h5">Ingrese el nombre del producto</label>
+        <input type="text" name="nombre" id="nombre" >
+
+    <label class="h5">Ingrese una categoria</label>
+    <select name="categoria" id="categoria" >
+            <option >
+                <?php
+                foreach($listCategorias as $item):?>
+                    <option value="<?= $item->id_categoria?>"><?= $item->nombre_categoria?></option>
+                    <?php endforeach?>
+            
+                    
+            </option>
+        
+    </select>
+
+    <label class="h5">Ingrese su precio</label>
+        <input type="number" name="precio" id="precio" >
+    </select>
+
+   
+    <button type="submit" class='btn btn-success ml-auto'>Actualizar</button>
+</form>
+
+<?php require_once './templates/footer.phtml'; ?>

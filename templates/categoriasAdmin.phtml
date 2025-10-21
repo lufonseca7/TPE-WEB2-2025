@@ -1,0 +1,55 @@
+<?php require_once './templates/header.phtml'?>
+<h2 class="text-center text-violet">Agregar Categoria:</h2>
+
+
+<form method="post" action="addCategoria" class="form-control form-control-sm">
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Ingrese un nombre de categoria</label>
+        <input type="text" class="form-control" name="nombre" id="nombre">
+           <label for="nombre" class="form-label">Ingrese descripcion de la categoria</label>
+        <input type="text" class="form-control" name="descripcion" id="descripcion">
+        <label for="nombre" class="form-label">Eliga si quiere destacar esta categoria</label>
+        <select name="categoria_destacada" id="categoria_destacada" class="form-select" aria-label="Default select example">
+            <option value="1">Categoria destacada</option>
+            <option value="0">Categoria no destacada</option>
+        </select>
+       
+
+    </div>
+    
+    <button type="submit" class="btn btn-outline-success">Agregar</button>
+</form>
+
+<h1  class="text-center text-violet">Nuestras Categorias son:</h1>
+
+<table class="table table-striped table-hover" style="background-color: #D09EE7;">
+    <thead>
+        <tr>
+            <th>Nombre Categoria</th>
+            <th>Descripcion</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($list as $item):?>
+            <?php if ($item->categoria_destacada == 1){ ?>
+                <tr style="background-color: #26db72ff;">
+                    <td><?= $item->nombre_categoria ?></td>
+                    <td><?= $item->descripcion ?></td>
+                    <td><a href="editCategoria/<?= $item->id_categoria?>" class="btn btn-success">Editar</a></td>
+                    <td><a href="removeCategoria/<?= $item->id_categoria?>" class="btn btn-danger">Borrar</a></td>      
+                </tr>
+                <?php }else{ ?>
+                <tr>
+                    <td><?= $item->nombre_categoria ?></td>
+                    <td><?= $item->descripcion ?></td>
+                    <td><a href="editCategoria/<?= $item->id_categoria?>" class="btn btn-success">Editar</a></td>
+                    <td><a href="removeCategoria/<?= $item->id_categoria?>" class="btn btn-danger">Borrar</a></td>  
+                </tr>
+                <?php }?>   
+
+        <?php endforeach?> 
+    </tbody>
+</table>
+<?php require_once './templates/footer.phtml'?>

@@ -1,0 +1,15 @@
+<?php require_once './templates/header.phtml'?>
+<ul class="list-group">
+    <li class="list-group-item d-flex align-items-center"> 
+        <div>
+            Nombre: <?= $categoria->nombre_categoria ?>
+        </div>
+        <form method="post" action="actualizarCategoria/<?=$id?>" class="d-inline-block ms-2">
+            <div class="input-group input-group-sm"> 
+                <input type="text" class="form-control" name="nombre" id="nombre" required>
+                <button type="submit" class="btn btn-warning">Actualizar</button>
+            </div>
+        </form>
+    </li>
+</ul>
+<?php require_once './templates/footer.phtml'?>
