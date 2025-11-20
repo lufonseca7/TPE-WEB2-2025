@@ -33,7 +33,6 @@ class categoriasController{
             $this->view->showError("Debe completar todos los campos");
             return;
         }
-        
         $id_categoria = $this->model->insertCategoria($nombre,$descripcion,$categoria_destacada);
         if ($id_categoria) {
             header('Location: ' . BASE_URL . 'categorias');
@@ -53,6 +52,10 @@ class categoriasController{
 
       function editCategoria($id_categoria){
         AuthHelper::verify();
+        if (!$this->model->existeCategoria($id_categoria)) {
+            $this->view->showError("Debe ingresar una categoria existente");
+            return;
+        }
         $categoria = $this->model->showCategoria($id_categoria);
         $this->view->categoriaEdit($id_categoria,$categoria);
     }
@@ -60,6 +63,10 @@ class categoriasController{
      function actualizarCategoria($id_categoria){
         AuthHelper::verify();
         $nuevoNombre = $_POST['nombre'];
+        if (empty($this->model->showCategoria($id_categoria))) {
+            $this->view->showError("Debe ingresar una categoria existente");
+            return;
+        }
         $this->model->actualizarCategoria($id_categoria,$nuevoNombre);
         header('Location: ' . BASE_URL .'categorias');
 

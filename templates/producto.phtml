@@ -1,0 +1,35 @@
+<?php require_once './templates/header.phtml' ?>
+  <?php $producto = $productos->nombre_producto ?>
+
+
+    <h3 class="bg-primary text-white text-center py-2 rounded">Producto: <?= $producto ?></h3>
+    <?php if($producto == 'Teclado Mecanico TKL'):?>
+            <img class="d-block mx-auto img-fluid" src="https://images.fravega.com/f500/0bb9a4f5871733fb4131358c393ba6ee.jpg" alt="" srcset="">;
+            <h4 class="bg-primary text-white text-center py-2 rounded">Teclado Mecanico Logitech G515 Tkl</h4>
+             
+    <?php  elseif($producto == 'INTEL i5 12400f'):?>
+            <img class="d-block mx-auto img-fluid" src="https://fullh4rd.com.ar/img/productos/1/micro-intel-core-i5-12400f-svideo-s1700-0.jpg" alt="" srcset="">;
+            <h4 class="bg-primary text-white text-center py-2 rounded">Intel Core i5 12400F </h4>
+
+    <?php  elseif($producto == 'Teclado Mecanico 60%'):?>
+            <img class="d-block mx-auto img-fluid" src="https://http2.mlstatic.com/D_Q_NP_711508-MLA95680785640_102025-O.webp" alt="" srcset="">
+            <h4 class="bg-primary text-white text-center py-2 rounded">Teclado Hyperx Alloy Origins RGB 60 Switch Red</h4>
+
+    <?php  elseif($producto == 'Asus B350M'):?>
+            <img class="d-block mx-auto img-fluid"  src="https://www.computershopping.com.ar/Images/Productos/Grandes/ASUS-PRIME-B350-A_Foto1g.jpg" alt="" srcset="">
+            <h4 class="bg-primary text-white text-center py-2 rounded">Asus Prime B350 M K B350 AMD Socket AM4</h4>
+
+    <?php  elseif($producto == 'AMD Ryzen 7 8700'):?>
+            <img class="d-block mx-auto img-fluid" src="https://www.gamingcity.com.ar/thumb/imagen_13549_800x800.jpg" alt="" srcset="">
+            <h4 class="bg-primary text-white text-center py-2 rounded">AMD Procesador Ryzen 7 8700G 4.1 5.0Ghz AM5</h4>
+
+    <?php  elseif($producto == 'Gigabyte A520M-H'):?>
+            <img class="d-block mx-auto img-fluid" src="https://http2.mlstatic.com/D_NQ_NP_2X_957193-MLA96315609702_102025-T.webp" alt="" srcset="">
+            <h4 class="bg-primary text-white text-center py-2 rounded">Gigabyte Amd A520m K V2 DDR4</h4>
+
+    <?php else: ?>
+        <h4>Esta categoria no tiene imagen adjunta</h4>
+    <?php endif ?>
+
+
+<?php require_once './templates/footer.phtml' ?>

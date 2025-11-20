@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3307
--- Tiempo de generación: 21-10-2025 a las 03:59:23
+-- Tiempo de generación: 20-11-2025 a las 18:39:30
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -40,7 +40,8 @@ CREATE TABLE `categorias` (
 
 INSERT INTO `categorias` (`id_categoria`, `nombre_categoria`, `descripcion`, `categoria_destacada`) VALUES
 (1, 'Teclado', 'Teclados mecanicos y de membrana', 1),
-(2, 'Procesadores', 'Procesadores AMD e Intel', 0);
+(2, 'Procesadores', 'Procesadores AMD e Intel', 0),
+(13, 'motherboard', 'Motherboard para AMD e INTEL', 0);
 
 -- --------------------------------------------------------
 
@@ -60,9 +61,12 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `nombre_producto`, `categoria`, `precio`) VALUES
-(2, 'Teclado Mecanico TKL', 1, 300000),
+(2, 'Teclado Mecanico TKL', 1, 60000),
 (3, 'INTEL i5 12400f', 2, 500000),
-(4, 'Teclado Mecanico 60%', 1, 430000);
+(4, 'Teclado Mecanico 60%', 1, 430000),
+(7, 'Asus B350M', 13, 100000),
+(8, 'AMD Ryzen 7 8700', 2, 300000),
+(9, 'Gigabyte A520M-H', 13, 200000);
 
 -- --------------------------------------------------------
 
@@ -114,13 +118,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`

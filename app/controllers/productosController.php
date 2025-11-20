@@ -26,6 +26,16 @@ class productosController{
         }
     }
 
+    function showProduct($id){
+        AuthHelper::init();
+
+        $producto = $this->model->showProducto($id);
+        $categoria = $this->modelCategoria->showCategoria($id);
+        $this->view->showProduct($producto, $categoria);
+
+    }
+
+
     function addProduct(){
         AuthHelper::verify();
         $producto = $_POST['producto'];
@@ -36,13 +46,16 @@ class productosController{
             $this->view->showError("Debe completar todos los campos");
             return;
         }
-
+        if (empty($this->modelCategoria->showCategoria($categoria))) {
+            $this->view->showError("Debe ingresar una categoria existente");
+            return;
+        }
         $idProducto = $this->model->insertProduct($producto, $categoria, $precio);
         if ($idProducto){
             header('Location: ' . BASE_URL . 'home');
         }
         else{
-            $this->view->showError("Error al inserter el producto ");
+            $this->view->showError("Error al insertar el producto ");
         }
     }
     
@@ -89,6 +102,10 @@ class productosController{
         if (empty($nuevoNombre) || empty($precio)|| empty($categoria)) {
              $this->view->showError("complete todos los campos");
              return;
+        }
+         if (empty($this->modelCategoria->showCategoria($categoria))) {
+            $this->view->showError("Debe ingresar una categoria existente");
+            return;
         }
         $this->model->actualizarProducto($id,$nuevoNombre, $categoria, $precio);
         header('Location: ' . BASE_URL .'home');

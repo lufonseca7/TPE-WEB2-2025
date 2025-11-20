@@ -28,6 +28,7 @@ require_once './templates/header.phtml'?>
             <th>Nombre Producto</th>
             <th>categoria</th>
             <th>Precio</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -36,6 +37,7 @@ require_once './templates/header.phtml'?>
                 <td><?= $item->nombre_producto ?></td>
                 <td><?= $item->nombre_categoria ?></td>
                 <td><?= $item->precio ?></td>
+                <td><a href="showProducto/<?= $item->id ?>" class="btn btn-success">Ver Producto</a></td>
             </tr>
         <?php endforeach?> 
     </tbody>

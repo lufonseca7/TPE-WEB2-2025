@@ -26,6 +26,11 @@ switch ($params[0]) {
         $controller->actualizarProducto($params[1]);
         break;
     
+    case 'showProducto':
+        $controller = new productosController();
+        $controller->showProduct($params[1]);
+        break;
+
     case 'editProducto':
         $controller = new productosController();
         $controller ->editProduct($params[1]); 

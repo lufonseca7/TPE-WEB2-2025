@@ -11,12 +11,16 @@ class productosView {
         $count = count($categorias);
         require './templates/productos.phtml';
     }
+    function showProduct($productos, $categorias){
+        require './templates/producto.phtml';
+    }
     function showError($error) {
         require './templates/error.phtml';
     }
     function productoEdit($id,$producto,$listCategorias){
         require './templates/editProducto.phtml';
     }
+
 
 }
 
